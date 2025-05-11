@@ -18,7 +18,12 @@ export const databaseProviders = [
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
-        ssl: true,
+        dialectOptions: {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false, // set to true if you provide a CA cert
+          },
+        },
         // logging: (msg) => Logger.verbose(msg, 'Sequelize'),
         logging: false,
         define: {
