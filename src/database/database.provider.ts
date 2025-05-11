@@ -18,6 +18,7 @@ export const databaseProviders = [
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
+        ssl: true,
         // logging: (msg) => Logger.verbose(msg, 'Sequelize'),
         logging: false,
         define: {
